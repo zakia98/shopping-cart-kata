@@ -4,7 +4,7 @@
   "description": "Shopping Cart take home assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "zakia98",
   "license": "ISC",
