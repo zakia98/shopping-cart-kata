@@ -7,7 +7,7 @@ test('No discount, adds items of same type C', () => {
     expect(totalPrice).toEqual(0.75)
 });
 
-test.skip('No discount, adds items of different types', () => {
+test('No discount, adds items of different types', () => {
     let cart = ['A', 'A', 'C'];
     let totalPrice = total(cart)
     
