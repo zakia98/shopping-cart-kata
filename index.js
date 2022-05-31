@@ -1,10 +1,5 @@
-let prices = {
-    A:0.50,
-    B:0.75,
-    C:0.25
-}
 
-const total = function(cart, discounts) {
+const total = function(cart, prices, discounts) {
     // this function should take an array of items, and return the total price of the items.
 
     let price = cart.reduce((previousValue, currentValue) => previousValue + prices[currentValue], 0)
@@ -36,7 +31,7 @@ const calculateDiscounts = function(cart, discounts) {
     // Then we will multiply the discount by the discount multiplier to obtain the discount for the item, and
     // add it to the total discount.
     let totalDiscount = 0
-    
+
     for (let sku in discounts) {
         if (itemCount[sku] != undefined) {
             let discountMultiplier = Math.floor(itemCount[sku] / discounts[sku].qualifier);
