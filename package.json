@@ -1,0 +1,14 @@
+{
+  "name": "shopping-cart-kata",
+  "version": "1.0.0",
+  "description": "Shopping Cart take home assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zakia98",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.1.0"
+  }
+}
