@@ -8,7 +8,7 @@
   },
   "author": "zakia98",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^28.1.0"
   }
 }
