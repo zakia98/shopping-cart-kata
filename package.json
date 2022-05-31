@@ -4,7 +4,7 @@
   "description": "Shopping Cart take home assignment",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "author": "zakia98",
   "license": "ISC",
