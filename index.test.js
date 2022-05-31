@@ -1,4 +1,6 @@
-let total = require('./index')
+let shoppingCart = require('./index');
+let total = shoppingCart.total
+let calculateDiscounts = shoppingCart.calculateDiscounts
 
 describe('total test set 1', () => {
     let prices = {
@@ -74,6 +76,37 @@ describe('total test set 1', () => {
         expect(totalPrice).toEqual(2.00);
     });
     
+});
+
+describe('calculateDiscounts', () => {
+    let discounts = {
+        B:{
+            qualifier: 2,
+            discount: 0.25
+        },
+        C: {
+            qualifier: 4,
+            discount: 0.25
+        }
+    };
+
+    test('Multi-buy discount for B', () => {
+        cart = ['B', 'B', 'B'];
+        let discount = calculateDiscounts(cart, discounts)
+        expect(discount).toEqual(0.25)
+    });
+
+    test('Get 1 item free discount for C', () => {
+        cart = ['C', 'C', 'C', 'C'];
+        let discount = calculateDiscounts(cart, discounts)
+        expect(discount).toEqual(0.25)
+    });
+
+    test('Multi-buy and Get 1 item free disconts', () => {
+        cart = ['B', 'B', 'C', 'C', 'C', 'C'];
+        let discount = calculateDiscounts(cart, discounts)
+        expect(discount).toEqual(0.50)
+    })
 })
 
 
