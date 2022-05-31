@@ -33,16 +33,36 @@ test('Discount on 3 items of same type B', () => {
     expect(totalPrice).toEqual(2.00);
 });
 
-test.skip('Buy 3, get 1 free', () => {
+test('Buy 3, get 1 free', () => {
     let cart = ['C', 'C', 'C', 'C'];
-    let totalPrice = total(cart);
+    let discounts = {
+        B:{
+            qualifier: 2,
+            discount: 0.25
+        },
+        C: {
+            qualifier: 4,
+            discount: 0.25
+        }
+    }
+    let totalPrice = total(cart, discounts);
 
     expect(totalPrice).toEqual(0.75);
 });
 
-test.skip('Two discounts applied in one transaction', () => {
+test('Two discounts applied in one transaction', () => {
     let cart = ['B', 'B', 'C', 'C', 'C', 'C'];
-    let totalPrice = total(cart);
+    let discounts = {
+        B:{
+            qualifier: 2,
+            discount: 0.25
+        },
+        C: {
+            qualifier: 4,
+            discount: 0.25
+        }
+    }
+    let totalPrice = total(cart, discounts);
 
     expect(totalPrice).toEqual(2.00);
 });
