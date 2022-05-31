@@ -6,7 +6,7 @@ const total = function(cart, prices, discounts) {
         if (prices[currentValue] == undefined) {
             throw new Error(`The price of ${currentValue} is not defined!`)
         } 
-        if (isNaN(prices[currentValue])) { 
+        if (typeof prices[currentValue] != 'number') { 
             throw new Error(`The price of ${currentValue} is not a number!`)
         } 
         
@@ -41,11 +41,11 @@ const calculateDiscounts = function(cart, discounts) {
     let totalDiscount = 0
 
     for (let sku in discounts) {
-        if (isNaN(discounts[sku].discount)) {
+        if (typeof discounts[sku].discount != 'number') {
             throw new Error(`The discount for ${sku} is not a number`)
         }
-        if (isNaN(discounts[sku].qualifier)) {
-            throw new Error(`The discount for ${sku} is not a number`)
+        if (typeof discounts[sku].qualifier != 'number') {
+            throw new Error(`The discount qualifier for ${sku} is not a number`)
         }
         if (discounts[sku].qualifier < 1) {
             throw new Error(`The discount qualifier for ${sku} is less than 1!`)
