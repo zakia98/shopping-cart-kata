@@ -61,4 +61,7 @@ const calculateDiscounts = function(cart, discounts) {
     return totalDiscount
 }
 
-module.exports = total
+module.exports = {
+    total:total,
+    calculateDiscounts:calculateDiscounts
+}
