@@ -2,8 +2,16 @@
 const total = function(cart, prices, discounts) {
     // this function should take an array of items, and return the total price of the items.
 
-    let price = cart.reduce((previousValue, currentValue) => previousValue + prices[currentValue], 0)
-
+    let price = cart.reduce((previousValue, currentValue) => {
+        if (prices[currentValue] == undefined) {
+            throw new Error(`The price of ${currentValue} is not defined!`)
+        } 
+        if (isNaN(prices[currentValue])) { 
+            throw new Error(`The price of ${currentValue} is not a number!`)
+        } 
+        
+        return previousValue + prices[currentValue];
+    }, 0)
     //  Now need to implement a way of adding discounts to final price
 
     const discount = calculateDiscounts(cart, discounts)
@@ -33,6 +41,16 @@ const calculateDiscounts = function(cart, discounts) {
     let totalDiscount = 0
 
     for (let sku in discounts) {
+        if (isNaN(discounts[sku].discount)) {
+            throw new Error(`The discount for ${sku} is not a number`)
+        }
+        if (isNaN(discounts[sku].qualifier)) {
+            throw new Error(`The discount for ${sku} is not a number`)
+        }
+        if (discounts[sku].qualifier < 1) {
+            throw new Error(`The discount qualifier for ${sku} is less than 1!`)
+        }
+
         if (itemCount[sku] != undefined) {
             let discountMultiplier = Math.floor(itemCount[sku] / discounts[sku].qualifier);
             let itemDiscount = discounts[sku].discount * discountMultiplier
