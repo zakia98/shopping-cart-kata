@@ -2,21 +2,33 @@ let total = require('./index')
 
 test('No discount, adds items of same type C', () => {
     let cart = ['C', 'C', 'C'];
-    let totalPrice = total(cart)
+    let discounts = {}
+    let totalPrice = total(cart, discounts)
     
     expect(totalPrice).toEqual(0.75)
 });
 
 test('No discount, adds items of different types', () => {
     let cart = ['A', 'A', 'C'];
-    let totalPrice = total(cart)
+    let discounts = {}
+    let totalPrice = total(cart, discounts)
     
     expect(totalPrice).toEqual(1.25)
 });
 
-test.skip('Discount on 3 items of same type B', () => {
+test('Discount on 3 items of same type B', () => {
     let cart = ['B', 'B', 'B'];
-    let totalPrice = total(cart);
+    let discounts = {
+        B:{
+            qualifier: 2,
+            discount: 0.25
+        },
+        C: {
+            qualifier: 4,
+            discount: 0.25
+        }
+    }
+    let totalPrice = total(cart, discounts);
 
     expect(totalPrice).toEqual(2.00);
 });
