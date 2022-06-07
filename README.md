@@ -2,11 +2,11 @@
 ## Description:
 A shopping cart system which calculates the total price of a number of items, and applies any relevant promotions.
 
-The shopping cart system accepts items in any order, so can apply the correct promotions regardless of scan order. 
+The shopping cart system accepts items in any order, so it can apply the correct promotions regardless of scan order. 
 
 ### Types of promotions possible
-- Multibuy promotion: buy x amount of product A for a cheaper price y. 
-- Buy z amount of product B and receive 1 free.
+- Multi-buy promotion: buy x amount of product A for a cheaper price y. 
+- Buy z amount of product B and receive x free.
 
 ## Usage
 The total function takes three inputs: `cart`, `prices`, and`discounts`.
@@ -46,4 +46,4 @@ The following errors may occur for these situations:
 ## Limitations
 This shopping cart system system has the following limitations:
 - Will not work for other promotions not listed in the specification such as `Buy 3, cheapest item free`, and will require changes for such an implementation.
-- Will not work if there are multiple discounts for 1 item, however it is rare that a store may want more than 1 discount on an item.
+- May not work as expected if there are multiple discounts for 1 item, however it is rare that a store may want more than 1 discount on an item.
